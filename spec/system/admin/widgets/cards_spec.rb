@@ -10,7 +10,7 @@ describe "Cards" do
     visit admin_homepage_path
     click_link "Create card"
 
-    fill_in "Label (optional)", with: "Card label"
+    fill_in "Label", with: "Card label"
     fill_in "Title", with: "Card text"
     fill_in "Description", with: "Card description"
     fill_in "Link text", with: "Link text"
@@ -71,7 +71,7 @@ describe "Cards" do
     end
 
     within(".translatable-fields") do
-      fill_in "Label (optional)", with: "Card label updated"
+      fill_in "Label", with: "Card label updated"
       fill_in "Title", with: "Card text updated"
       fill_in "Description", with: "Card description updated"
       fill_in "Link text", with: "Link text updated"
@@ -112,7 +112,7 @@ describe "Cards" do
       visit admin_homepage_path
       click_link "Create header"
 
-      fill_in "Label (optional)", with: "Header label"
+      fill_in "Label", with: "Header label"
       fill_in "Title", with: "Header text"
       fill_in "Description", with: "Header description"
       fill_in "Link text", with: "Link text"

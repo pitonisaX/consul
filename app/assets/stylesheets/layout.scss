@@ -1103,6 +1103,12 @@ form {
     font-size: $base-font-size;
     font-weight: bold;
     line-height: $line-height;
+
+    &.required::after {
+      content: "*";
+      color: $warning-color;
+      margin-left: 0.1rem;
+    }
   }
 
   fieldset legend {

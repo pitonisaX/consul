@@ -4,7 +4,9 @@ describe ConsulFormBuilder do
   class DummyModel
     include ActiveModel::Model
     OPTIONS = %w[Good Bad Ugly].freeze
-    attr_accessor :title, :quality
+    attr_accessor :title, :quality, :summary
+
+    validates :title, presence: true
   end
 
   let(:builder) { ConsulFormBuilder.new(:dummy, DummyModel.new, ActionView::Base.new, {}) }
@@ -49,6 +51,22 @@ describe ConsulFormBuilder do
 
       expect(page).to have_css ".help-text", text: "Ugly is neither good nor bad"
       expect(page).to have_css "select[aria-describedby='dummy_quality-help-text']"
+    end
+  end
+
+  describe "required attributes" do
+    it "generates a required attribute for required fields" do
+      render builder.text_field(:title)
+
+      expect(page).to have_css "label.required"
+      expect(page).to have_css "input[required]"
+    end
+
+    it "does not generate a required attribute for optional fields" do
+      render builder.text_field(:summary)
+
+      expect(page).not_to have_css "label.required"
+      expect(page).not_to have_css "input[required]"
     end
   end
 
