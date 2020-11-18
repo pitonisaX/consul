@@ -1,0 +1,13 @@
+<ul class="tabs">
+  <% sections.each do |section| %>
+    <li class="tabs-title <%= "is-active" if section == current %>">
+      <%= link_to_section section %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="tabs-content" data-tabs-content="deeplinked-tabs">
+  <div class="tabs-panel is-active">
+    <%= content %>
+  </div>
+</div>
