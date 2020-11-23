@@ -4,6 +4,8 @@ shared_examples_for "globalizable" do |factory_name|
   let(:record) do
     if factory_name == :budget_phase
       create(:budget).phases.last
+    elsif factory_name == :sdg_local_target
+      create(:sdg_local_target, code: "1.1.1", target: SDG::Target[1.1])
     else
       create(factory_name)
     end
