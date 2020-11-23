@@ -4,3 +4,13 @@ es:
       title: "Contenido ODS"
     menu:
       sdg_content: "Objetivos y Metas"
+    local_targets:
+      index:
+        destroy: "Eliminar meta localizada"
+        edit: "Editar meta localizada"
+        new: "Crear meta localizada"
+      new:
+        title: "Nueva meta localizada"
+        submit: "Crear meta localizada"
+      update:
+        notice: "Meta localizada actualizada correctamente"

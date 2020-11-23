@@ -4,3 +4,13 @@ en:
       title: "SDG content"
     menu:
       sdg_content: "Goals and Targets"
+    local_targets:
+      index:
+        destroy: "Delete local target"
+        edit: "Edit local target"
+        new: "Create local target"
+      new:
+        title: "New local target"
+        submit: "Create local target"
+      update:
+        notice: "Local target updated successfully"
