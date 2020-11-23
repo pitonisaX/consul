@@ -1,0 +1,23 @@
+<%= header %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= SDG::Target.model_name.human(count: 2) %></th>
+      <th><%= SDG::Goal.model_name.human(count: 2) %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.title %></td>
+        <td><%= targets_for(record) %></td>
+        <td><%= goals_for(record) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate(@records) %>

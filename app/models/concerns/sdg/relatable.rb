@@ -15,4 +15,8 @@ module SDG::Relatable
   def related_sdgs
     sdg_relations.map(&:related_sdg)
   end
+
+  def sdg_target_list
+    sdg_targets.map(&:code).join(", ")
+  end
 end
