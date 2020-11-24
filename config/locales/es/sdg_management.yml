@@ -1,5 +1,7 @@
 es:
   sdg_management:
+    actions:
+      actions: "Acciones"
     header:
       title: "Contenido ODS"
     menu:
