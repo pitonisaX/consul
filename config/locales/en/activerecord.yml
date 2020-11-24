@@ -321,8 +321,11 @@ en:
         code: "Code"
         title: "Title"
         description: "Description"
+      sdg/local_target:
+        code: "Code"
       sdg/local_target/translation:
         title: "Title"
+        description: "Description"
       sdg/target:
         code: "Code"
         title: "Title"

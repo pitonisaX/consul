@@ -5,6 +5,10 @@ en:
     menu:
       sdg_content: "Goals and Targets"
     local_targets:
+      create:
+        notice: "Local target created successfully"
+      form:
+        description: "This description will be shown as help to users."
       index:
         destroy: "Delete local target"
         edit: "Edit local target"

@@ -318,8 +318,11 @@ es:
         code: "Código"
         title: "Título"
         description: "Descripción"
+      sdg/local_target:
+        code: "Código"
       sdg/local_target/translation:
         title: "Título"
+        description: "Descripción"
       sdg/target:
         code: "Código"
         title: "Título"
