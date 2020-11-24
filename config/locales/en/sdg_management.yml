@@ -2,6 +2,7 @@ en:
   sdg_management:
     actions:
       actions: "Actions"
+      edit: "Manage goals and targets"
     header:
       title: "SDG content"
     menu:
