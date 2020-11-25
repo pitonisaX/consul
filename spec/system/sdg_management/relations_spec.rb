@@ -83,4 +83,19 @@ describe "SDG Relations", :js do
       expect(page).to have_css "h2", exact_text: "Build a hospital"
     end
   end
+
+  describe "Edit" do
+    scenario "allows changing the targets" do
+      poll = create(:poll, name: "SDG poll")
+      poll.sdg_targets = [SDG::Target["3.3"]]
+
+      visit sdg_management_edit_poll_path(poll)
+      fill_in "Targets", with: "1.2, 2.1"
+      click_button "Update Poll"
+
+      within("tr", text: "SDG poll") do
+        expect(page).to have_css "td", exact_text: "1.2, 2.1"
+      end
+    end
+  end
 end
