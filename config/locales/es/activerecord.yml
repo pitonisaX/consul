@@ -5,6 +5,9 @@ es:
     sdg_target_list: "Metas"
     stats_enabled: "Mostrar estadísticas"
     advanced_stats_enabled: "Mostrar estadísticas avanzadas"
+    name: Nombre
+    email: Email
+    description: Descripción
   activerecord:
     models:
       activity:
@@ -82,6 +85,9 @@ es:
       sdg/target:
         one: "meta"
         other: "metas"
+      sdg/manager:
+        one: "Gestor ODS"
+        other: "Gestores ODS"
       site_customization/page:
         one: Página
         other: Páginas

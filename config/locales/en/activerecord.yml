@@ -5,6 +5,9 @@ en:
     sdg_target_list: "Targets"
     stats_enabled: "Show stats"
     advanced_stats_enabled: "Show advanced stats"
+    name: Name
+    email: Email
+    description: Description
   activerecord:
     models:
       activity:
@@ -79,6 +82,9 @@ en:
       sdg/local_target:
         one: "local target"
         other: "local targets"
+      sdg/manager:
+        one: "SDG Manager"
+        other: "SDG Managers"
       sdg/target:
         one: "target"
         other: "targets"
