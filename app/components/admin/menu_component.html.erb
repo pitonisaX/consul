@@ -173,9 +173,15 @@
         <%= link_to t("admin.menu.valuators"), admin_valuators_path %>
       </li>
 
-      <li <%= "class=is-active" if controller_name == "managers" %>>
+      <li <%= "class=is-active" if managers? %>>
         <%= link_to t("admin.menu.managers"), admin_managers_path %>
       </li>
+
+      <% if feature?(:sdg) %>
+        <li <%= "class=is-active" if sdg_managers? %>>
+          <%= link_to t("admin.menu.sdg_managers"), admin_sdg_managers_path %>
+        </li>
+      <% end %>
 
       <li <%= "class=is-active" if controller_name == "users" %>>
         <%= link_to t("admin.menu.users"), admin_users_path %>

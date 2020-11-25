@@ -65,4 +65,12 @@ class Admin::MenuComponent < ApplicationComponent
     def messages_sections
       %w[newsletters emails_download admin_notifications system_emails]
     end
+
+    def sdg_managers?
+      controller_name == "managers" && controller.class.parent ==  Admin::SDG
+    end
+
+    def managers?
+      controller_name == "managers" && controller.class.parent ==  Admin
+    end
 end
