@@ -9,6 +9,9 @@ en:
     local_targets:
       create:
         notice: "Local target created successfully"
+      edit:
+        title: "Edit local target"
+        submit: "Update local target"
       form:
         description: "This description will be shown as help to users."
       index:
