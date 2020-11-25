@@ -17,6 +17,7 @@ describe "Local Targets", :js do
       within("table tr", text: "Affordable food") do
         href = edit_sdg_management_local_target_path(local_target)
         expect(page).to have_link "Edit local target", href: href
+        expect(page).to have_link "Delete local target", href: sdg_management_local_target_path(local_target)
       end
       expect(page).to have_link "Create local target", href: new_sdg_management_local_target_path
     end
@@ -78,6 +79,18 @@ describe "Local Targets", :js do
       click_button "Update local target"
 
       expect(page).to have_content("1 error prevented this SDG/Local Target from being saved.")
+    end
+  end
+
+  describe "Destroy" do
+    scenario "Shows succesful notice when local target is destroyed successfully" do
+      create(:sdg_local_target, :find_target, code: "1.1.1")
+      visit sdg_management_local_targets_path
+
+      accept_confirm { click_link "Delete local target" }
+
+      expect(page).to have_content("Local target deleted successfully")
+      expect(page).not_to have_content("1.1.1")
     end
   end
 end

@@ -27,5 +27,7 @@ class SDGManagement::LocalTargets::IndexComponent < ApplicationComponent
         actions: [:edit, :destroy],
         edit_path: edit_sdg_management_local_target_path(local_target),
         edit_text: t("sdg_management.local_targets.index.edit"),
+        destroy_path: sdg_management_local_target_path(local_target),
+        destroy_text: t("sdg_management.local_targets.index.destroy"))
     end
 end
