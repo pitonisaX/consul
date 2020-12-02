@@ -6,33 +6,81 @@ describe "SDG Relations", :js do
     Setting["feature.sdg"] = true
   end
 
-  scenario "navigation" do
-    visit sdg_management_root_path
+  describe "navigation" do
+    scenario "features enabled" do
+      Setting["sdg.process.budgets"] = true
+      Setting["sdg.process.debates"] = true
+      Setting["sdg.process.legislation"] = true
+      Setting["sdg.process.polls"] = true
+      Setting["sdg.process.proposals"] = true
 
-    within("#side_menu") { click_link "Participatory budgets" }
+      visit sdg_management_root_path
 
-    expect(page).to have_current_path "/sdg_management/budget/investments"
-    expect(page).to have_css "h2", exact_text: "Participatory budgets"
+      within("#side_menu") { click_link "Participatory budgets" }
 
-    within("#side_menu") { click_link "Debates" }
+      expect(page).to have_current_path "/sdg_management/budget/investments"
+      expect(page).to have_css "h2", exact_text: "Participatory budgets"
 
-    expect(page).to have_current_path "/sdg_management/debates"
-    expect(page).to have_css "h2", exact_text: "Debates"
+      within("#side_menu") { click_link "Debates" }
 
-    within("#side_menu") { click_link "Collaborative legislation" }
+      expect(page).to have_current_path "/sdg_management/debates"
+      expect(page).to have_css "h2", exact_text: "Debates"
 
-    expect(page).to have_current_path "/sdg_management/legislation/processes"
-    expect(page).to have_css "h2", exact_text: "Collaborative legislation"
+      within("#side_menu") { click_link "Collaborative legislation" }
 
-    within("#side_menu") { click_link "Polls" }
+      expect(page).to have_current_path "/sdg_management/legislation/processes"
+      expect(page).to have_css "h2", exact_text: "Collaborative legislation"
 
-    expect(page).to have_current_path "/sdg_management/polls"
-    expect(page).to have_css "h2", exact_text: "Polls"
+      within("#side_menu") { click_link "Polls" }
 
-    within("#side_menu") { click_link "Proposals" }
+      expect(page).to have_current_path "/sdg_management/polls"
+      expect(page).to have_css "h2", exact_text: "Polls"
 
-    expect(page).to have_current_path "/sdg_management/proposals"
-    expect(page).to have_css "h2", exact_text: "Proposals"
+      within("#side_menu") { click_link "Proposals" }
+
+      expect(page).to have_current_path "/sdg_management/proposals"
+      expect(page).to have_css "h2", exact_text: "Proposals"
+    end
+
+    scenario "features disabled" do
+      Setting["process.budgets"] = false
+      Setting["process.debates"] = false
+      Setting["process.legislation"] = false
+      Setting["process.polls"] = false
+      Setting["process.proposals"] = false
+
+      visit sdg_management_root_path
+
+      within("#side_menu") do
+        expect(page).to have_link "Goals and Targets"
+
+        expect(page).not_to have_link "Participatory budgets"
+        expect(page).not_to have_link "Debates"
+        expect(page).not_to have_link "Collaborative legislation"
+        expect(page).not_to have_link "Polls"
+        expect(page).not_to have_link "Proposals"
+      end
+    end
+
+    scenario "SDG features disabled" do
+      Setting["sdg.process.budgets"] = false
+      Setting["sdg.process.debates"] = false
+      Setting["sdg.process.legislation"] = false
+      Setting["sdg.process.polls"] = false
+      Setting["sdg.process.proposals"] = false
+
+      visit sdg_management_root_path
+
+      within("#side_menu") do
+        expect(page).to have_link "Goals and Targets"
+
+        expect(page).not_to have_link "Participatory budgets"
+        expect(page).not_to have_link "Debates"
+        expect(page).not_to have_link "Collaborative legislation"
+        expect(page).not_to have_link "Polls"
+        expect(page).not_to have_link "Proposals"
+      end
+    end
   end
 
   describe "Index" do

@@ -6,6 +6,8 @@ class SDGManagement::MenuComponent < ApplicationComponent
     end
 
     def relatable_list_item(type, &block)
+      return unless setting["process.#{process_name(type)}"] && setting["sdg.process.#{process_name(type)}"]
+
       active = controller_name == "relations" && params[:relatable_type] == type.tableize
 
       tag.li class: ("is-active" if active) do
@@ -21,5 +23,15 @@ class SDGManagement::MenuComponent < ApplicationComponent
 
     def table_name(type)
       type.constantize.table_name
+    end
+
+    def process_name(type)
+      process_name = type.split("::").first
+
+      if process_name == "Legislation"
+        "legislation"
+      else
+        process_name.constantize.table_name
+      end
     end
 end
