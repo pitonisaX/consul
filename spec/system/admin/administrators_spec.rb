@@ -83,6 +83,7 @@ describe "Admin administrators" do
       click_button "Search"
 
       expect(page).to have_content("Administrators: User search")
+      expect(find("#name_or_email").value).to eq "Sumn"
       expect(page).to have_content(administrator1.name)
       expect(page).not_to have_content(administrator2.name)
     end
@@ -95,6 +96,7 @@ describe "Admin administrators" do
       click_button "Search"
 
       expect(page).to have_content("Administrators: User search")
+      expect(find("#name_or_email").value).to eq administrator2.email
       expect(page).to have_content(administrator2.email)
       expect(page).not_to have_content(administrator1.email)
     end
